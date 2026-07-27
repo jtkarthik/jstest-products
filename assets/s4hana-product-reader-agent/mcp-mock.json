@@ -1,0 +1,140 @@
+{
+  "servers": {
+    "api-product-0002-mcp": {
+      "mcp_server_name": "sap.s4:apiResource:API_PRODUCT_0002_MCP:v1",
+      "description": "MCP server for reading S/4HANA product master data via API_PRODUCT_0002",
+      "tools": {
+        "list_products": {
+          "description": "Retrieve a list of product master records from SAP S/4HANA",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "integer",
+                "description": "Maximum number of records to return"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Comma-separated list of fields to return"
+              },
+              "$orderby": {
+                "type": "string",
+                "description": "Field and direction for sorting"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "Product": "PROD-001",
+                "ProductType": "FERT",
+                "BaseUnit": "EA",
+                "ProductGroup": "L001",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "1.500",
+                "NetWeight": "1.200",
+                "ProductDescription": "Finished Product 001",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-002",
+                "ProductType": "HALB",
+                "BaseUnit": "EA",
+                "ProductGroup": "L002",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "0.800",
+                "NetWeight": "0.650",
+                "ProductDescription": "Semi-Finished Product 002",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-003",
+                "ProductType": "ROH",
+                "BaseUnit": "KG",
+                "ProductGroup": "L003",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "5.000",
+                "NetWeight": "5.000",
+                "ProductDescription": "Raw Material 003",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-004",
+                "ProductType": "FERT",
+                "BaseUnit": "EA",
+                "ProductGroup": "L001",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "2.100",
+                "NetWeight": "1.900",
+                "ProductDescription": "Finished Product 004",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-005",
+                "ProductType": "DIEN",
+                "BaseUnit": "EA",
+                "ProductGroup": "L004",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "0.000",
+                "NetWeight": "0.000",
+                "ProductDescription": "Service Product 005",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              }
+            ]
+          }
+        },
+        "get_product_by_id": {
+          "description": "Retrieve a single product master record by product ID",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "Product": {
+                "type": "string",
+                "description": "Product identifier"
+              }
+            },
+            "required": ["Product"]
+          },
+          "mock_response": {
+            "Product": "PROD-001",
+            "ProductType": "FERT",
+            "BaseUnit": "EA",
+            "ProductGroup": "L001",
+            "Division": "00",
+            "WeightUnit": "KG",
+            "GrossWeight": "1.500",
+            "NetWeight": "1.200",
+            "ProductDescription": "Finished Product 001",
+            "CreationDate": "/Date(1680307200000)/",
+            "LastChangeDate": "/Date(1744588800000)/"
+          }
+        }
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_for_agent": "s4hana-product-reader-agent",
+    "mock_mode": true,
+    "deterministic": true,
+    "total_servers": 1,
+    "total_tools": 2,
+    "generated_from": ["sap.s4:apiResource:API_PRODUCT_0002_MCP:v1"],
+    "generation_date": "2026-07-23"
+  }
+}

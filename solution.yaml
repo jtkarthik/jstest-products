@@ -1,0 +1,10 @@
+apiVersion: solution.sap/v1
+kind: Solution
+
+metadata:
+  name: s4hana-product-reader-agent-98856
+  version: 1.0.0
+  description: AI agent that retrieves product master data from SAP S/4HANA using the API_PRODUCT_0002 MCP server
+
+assets:
+  - ref: ./assets/s4hana-product-reader-agent/asset.yaml
