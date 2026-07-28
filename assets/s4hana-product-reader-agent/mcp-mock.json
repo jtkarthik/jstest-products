@@ -94,6 +94,71 @@
                 "ProductDescription": "Service Product 005",
                 "CreationDate": "/Date(1680307200000)/",
                 "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-006",
+                "ProductType": "ROH",
+                "BaseUnit": "L",
+                "ProductGroup": "L003",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "10.000",
+                "NetWeight": "10.000",
+                "ProductDescription": "Raw Material 006",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-007",
+                "ProductType": "FERT",
+                "BaseUnit": "EA",
+                "ProductGroup": "L001",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "3.200",
+                "NetWeight": "2.900",
+                "ProductDescription": "Finished Product 007",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-008",
+                "ProductType": "HALB",
+                "BaseUnit": "EA",
+                "ProductGroup": "L002",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "1.100",
+                "NetWeight": "0.950",
+                "ProductDescription": "Semi-Finished Product 008",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-009",
+                "ProductType": "FERT",
+                "BaseUnit": "EA",
+                "ProductGroup": "L001",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "0.500",
+                "NetWeight": "0.420",
+                "ProductDescription": "Finished Product 009",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
+              },
+              {
+                "Product": "PROD-010",
+                "ProductType": "DIEN",
+                "BaseUnit": "EA",
+                "ProductGroup": "L004",
+                "Division": "00",
+                "WeightUnit": "KG",
+                "GrossWeight": "0.000",
+                "NetWeight": "0.000",
+                "ProductDescription": "Service Product 010",
+                "CreationDate": "/Date(1680307200000)/",
+                "LastChangeDate": "/Date(1744588800000)/"
               }
             ]
           }
@@ -108,7 +173,9 @@
                 "description": "Product identifier"
               }
             },
-            "required": ["Product"]
+            "required": [
+              "Product"
+            ]
           },
           "mock_response": {
             "Product": "PROD-001",
@@ -127,14 +194,139 @@
       }
     }
   },
+  "servers": {
+    "api-sales-order-srv-0002-mcp": {
+      "mcp_server_name": "sap.s4:apiResource:API_SALES_ORDER_SRV_0002_MCP:v1",
+      "description": "MCP server for reading S/4HANA sales order data",
+      "tools": {
+        "list_sales_orders": {
+          "description": "Retrieve a list of sales orders from SAP S/4HANA",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "$top": {
+                "type": "integer",
+                "description": "Maximum number of records to return"
+              },
+              "$filter": {
+                "type": "string",
+                "description": "OData filter expression"
+              },
+              "$select": {
+                "type": "string",
+                "description": "Comma-separated list of fields to return"
+              },
+              "$orderby": {
+                "type": "string",
+                "description": "Field and direction for sorting"
+              }
+            },
+            "required": []
+          },
+          "mock_response": {
+            "results": [
+              {
+                "SalesOrder": "0000000001",
+                "SalesOrderType": "OR",
+                "SalesOrganization": "1010",
+                "SoldToParty": "CUST-001",
+                "TotalNetAmount": "15000.00",
+                "TransactionCurrency": "EUR",
+                "SalesOrderDate": "/Date(1744588800000)/",
+                "RequestedDeliveryDate": "/Date(1747267200000)/",
+                "OverallDeliveryStatus": "A",
+                "SalesOrderDescription": "Standard Order 001"
+              },
+              {
+                "SalesOrder": "0000000002",
+                "SalesOrderType": "OR",
+                "SalesOrganization": "1010",
+                "SoldToParty": "CUST-002",
+                "TotalNetAmount": "8500.00",
+                "TransactionCurrency": "EUR",
+                "SalesOrderDate": "/Date(1744675200000)/",
+                "RequestedDeliveryDate": "/Date(1747353600000)/",
+                "OverallDeliveryStatus": "B",
+                "SalesOrderDescription": "Standard Order 002"
+              },
+              {
+                "SalesOrder": "0000000003",
+                "SalesOrderType": "OR",
+                "SalesOrganization": "1020",
+                "SoldToParty": "CUST-003",
+                "TotalNetAmount": "32000.00",
+                "TransactionCurrency": "USD",
+                "SalesOrderDate": "/Date(1744761600000)/",
+                "RequestedDeliveryDate": "/Date(1747440000000)/",
+                "OverallDeliveryStatus": "C",
+                "SalesOrderDescription": "Standard Order 003"
+              },
+              {
+                "SalesOrder": "0000000004",
+                "SalesOrderType": "QT",
+                "SalesOrganization": "1010",
+                "SoldToParty": "CUST-001",
+                "TotalNetAmount": "5200.00",
+                "TransactionCurrency": "EUR",
+                "SalesOrderDate": "/Date(1744848000000)/",
+                "RequestedDeliveryDate": "/Date(1747526400000)/",
+                "OverallDeliveryStatus": "A",
+                "SalesOrderDescription": "Quotation 004"
+              },
+              {
+                "SalesOrder": "0000000005",
+                "SalesOrderType": "OR",
+                "SalesOrganization": "1020",
+                "SoldToParty": "CUST-004",
+                "TotalNetAmount": "19750.00",
+                "TransactionCurrency": "USD",
+                "SalesOrderDate": "/Date(1744934400000)/",
+                "RequestedDeliveryDate": "/Date(1747612800000)/",
+                "OverallDeliveryStatus": "B",
+                "SalesOrderDescription": "Standard Order 005"
+              }
+            ]
+          }
+        },
+        "get_sales_order_by_id": {
+          "description": "Retrieve a single sales order by its ID",
+          "input_schema": {
+            "type": "object",
+            "properties": {
+              "SalesOrder": {
+                "type": "string",
+                "description": "Sales order number"
+              }
+            },
+            "required": ["SalesOrder"]
+          },
+          "mock_response": {
+            "SalesOrder": "0000000001",
+            "SalesOrderType": "OR",
+            "SalesOrganization": "1010",
+            "SoldToParty": "CUST-001",
+            "TotalNetAmount": "15000.00",
+            "TransactionCurrency": "EUR",
+            "SalesOrderDate": "/Date(1744588800000)/",
+            "RequestedDeliveryDate": "/Date(1747267200000)/",
+            "OverallDeliveryStatus": "A",
+            "SalesOrderDescription": "Standard Order 001"
+          }
+        }
+      }
+    }
+  },
   "metadata": {
     "version": "1.0.0",
     "created_for_agent": "s4hana-product-reader-agent",
     "mock_mode": true,
     "deterministic": true,
-    "total_servers": 1,
-    "total_tools": 2,
-    "generated_from": ["sap.s4:apiResource:API_PRODUCT_0002_MCP:v1"],
+    "total_servers": 2,
+    "total_tools": 4,
+    "generated_from": [
+      "sap.s4:apiResource:API_PRODUCT_0002_MCP:v1",
+      "sap.s4:apiResource:API_SALES_ORDER_SRV_0002_MCP:v1"
+    ],
     "generation_date": "2026-07-23"
   }
 }

@@ -55,13 +55,13 @@ def main(host: str, port: int):
     skill = AgentSkill(
         id="s4hana-product-reader-agent",
         name="s4hana-product-reader-agent",
-        description="An AI agent that retrieves up to 5 product master records from SAP S/4HANA",
+        description="An AI agent that retrieves up to 10 product master records from SAP S/4HANA",
         tags=["s4hana", "product", "reader", "agent"],
-        examples=["Retrieve 5 products from S/4HANA", "Show me product master data"],
+        examples=["Retrieve 10 products from S/4HANA", "Show me product master data"],
     )
     agent_card = AgentCard(
         name="s4hana-product-reader-agent",
-        description="An AI agent that retrieves up to 5 product master records from SAP S/4HANA",
+        description="An AI agent that retrieves up to 10 product master records from SAP S/4HANA",
         url=os.environ.get("AGENT_PUBLIC_URL", f"http://{host}:{port}/"),
         version="1.0.0",
         default_input_modes=["text", "text/plain"],
